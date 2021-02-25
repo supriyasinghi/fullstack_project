@@ -14,8 +14,6 @@ const con = mysql.createConnection({
     database: "events"
 });
 
-
-
 app.get('/', async(req, res) => {
     
     con.connect(function(err){

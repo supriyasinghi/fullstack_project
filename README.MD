@@ -16,3 +16,8 @@ To install express, express-session, nodemon, mysql, pug, axios
     npm install mysql
     npm install pug --save
     npm install axios
+
+
+<!-- api key
+AIzaSyAQPWDG9AodtpiR6jLbxa5YUgUDjaLDdFE
+ -->
