@@ -18,7 +18,7 @@ html(lang='en')
       table.ui.celled.table.center.aligned
         thead
           tr
-            th(width='60%') Name
+            th(width='50%') Event Name
             th City
             th Country
         tbody
@@ -30,13 +30,11 @@ html(lang='en')
                   | #{event.eventname}
               td #{event.city}
               td #{event.country}
-
-              //-  a(href=`/views/${event.eventname}` target='popup') #{event.eventname}
+      br
     script.
       var searchParam;
       document.addEventListener('keyup', function(e){
         searchParam = document.getElementById('search').value;
-        console.log('pug')//-supriya
         console.log(searchParam)//-supriya
         if(e.key==='Enter'){
           console.log(searchParam);

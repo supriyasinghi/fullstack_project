@@ -11,6 +11,7 @@ const port = process.env.PORT || 5000;
 
 const parser = require('body-parser');
 const {body,validationResult} = require('express-validator');
+const { eventNames } = require('process');
 enctype="application/x-www-form-urlencoded";
 
 app.set('main', __dirname + '/components');
@@ -40,10 +41,17 @@ app.get('/', async(req, res) => {
 
 app.get('/search*', function(req,res){
     let searchParam = req.query.query;
-    console.log(searchParam)  //supriya
     pool.getConnection(function(err, connection){
         if (err) throw err;
-        connection.query('SELECT * FROM events where city like "%'+searchParam+'%"',
+        // connection.query('SELECT * FROM events where city like "%'+searchParam+'%"',
+        connection.query(
+            'SELECT *'+
+            ' FROM events'+ 
+            ' WHERE eventname LIKE "%'+searchParam+'%"' +
+            ' OR city LIKE "%'+searchParam+'%"'+
+            ' OR country LIKE "%'+searchParam+'%"'+
+            ' OR address1 LIKE "%'+searchParam+'%"',
+
         function(err, result){
             if(err) throw err;
             const data = result;
