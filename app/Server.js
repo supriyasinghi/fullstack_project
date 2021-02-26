@@ -7,9 +7,13 @@ const axios = require("axios");
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 5000;
+//supriya
+const parser = require("body-parser");
 
 app.set('main', __dirname + '/components');
 app.set('view engine', 'pug');
+//supriya
+app.use(parser.json());
 
 const pool = mysql.createPool({
     connectionLimit : 10,
@@ -32,15 +36,20 @@ app.get('/', async(req, res) => {
 })
 
 app.get('/search', function(req,res){
-    connection.query('SELECT * FROM events where city like "%'+req.query.key+'%"',
-    function(err, result){
-        if(err) throw err;
-        const data = result;
-        console.log(data);
-        res.render("main",{events: data});
-    });
+    var search_url=req.params.query //supriya
+    console.log(`searchURL - ${search_url}`)     //supriya
+    console.log(req.query.key)  //supriya
+    pool.getConnection(function(err, connection){
+        if (err) throw err;
+        connection.query('SELECT * FROM events where country like "%'+req.query.key+'%"',
+        function(err, result){
+            if(err) throw err;
+            const data = result;
+            console.log(data);
+            res.render("main",{events: data});
+        });
+    })
 })
-
 
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
