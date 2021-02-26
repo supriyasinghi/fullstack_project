@@ -6,19 +6,14 @@ html(lang='en')
     //- script(src ='../public/main.js' type = 'text/javascript').
 
     style.
-      table.ui.celled img { display: inline-block; width:80%}
+      table.ui.celled img { display: inline-block; width:60%}
       footer { margin: 35px 0 15px 0; text-align: center }
   body
     main#main
     h1.ui.center.aligned.header Event Planner
-    
-    .ui.search
     .ui.icon.input
-    input.prompt(id='search' name='search' type='text' placeholder='Search cities...')
-
-    .i.search.icon
-  .results
-
+      input(id='search' name='search' type='text' placeholder='Search cities...')
+      i.search.icon
     ui.container
       table.ui.celled.table.center.aligned
         thead
