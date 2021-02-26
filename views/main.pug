@@ -3,9 +3,7 @@ html(lang='en')
   head
     title Event Planner
     link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/semantic-ui@2.3.3/dist/semantic.min.css')
-    script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
-    script(src='/typeahead.min.js')
-  
+    script(type = 'text/javascript' src ='${pageContext.request.contextPath}/static/listening.js')
     style.
       table.ui.celled img { display: inline-block; }
       footer { margin: 35px 0 15px 0; text-align: center }
@@ -14,10 +12,11 @@ html(lang='en')
     h1.ui.center.aligned.header Event Planner
     
     .ui.search
-      .ui.icon.input
-      input.typeahead.tt-query(spellcheck='false' autocomplete='off' name='typeahead' type='text')
-      i.search.icon
-    .results
+  .ui.icon.input
+    input.prompt(id='search' type='text' placeholder='Search countries...')
+    i.search.icon
+  .results
+
 
     ui.container
       table.ui.celled.table.center.aligned

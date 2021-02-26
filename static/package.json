@@ -1,0 +1,7 @@
+{
+  "name": "node_dom",
+  "version": "0.0.1",
+  "dependencies": {
+    "jsdom": "^11.3.0"
+  }
+}
