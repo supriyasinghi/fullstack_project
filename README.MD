@@ -16,8 +16,14 @@ To install express, express-session, nodemon, mysql, pug, axios
     npm install mysql
     npm install pug --save
     npm install axios
+    npm install googleapis --save       <!-- for google calendar API  -->
 
 
 <!-- api key
 AIzaSyAQPWDG9AodtpiR6jLbxa5YUgUDjaLDdFE
+
+
+
+CLient ID - 631345616458-ijh5bjqi2rcs9vpir394t1uo24qg9ccc.apps.googleusercontent.com
+client secret - A32YmRwd5u_ssN3h8ZGKaQkY
  -->

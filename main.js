@@ -18,7 +18,6 @@ const pool = mysql.createPool({
 });
 
 app.get('/', async(req, res) => {
-    
     pool.getConnection(function(err, connection){
         if (err) throw err;
         connection.query("SELECT * FROM events", function(err, result, fields){
@@ -30,10 +29,6 @@ app.get('/', async(req, res) => {
     });
 })
 
-app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
-});
-
 app.get('/search', function(req,res){
     connection.query('SELECT * FROM events where city like "%'+req.query.key+'%"',
     function(err, result){
@@ -43,3 +38,8 @@ app.get('/search', function(req,res){
         res.render("main",{events: data});
     });
 })
+
+
+app.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}`);
+});
