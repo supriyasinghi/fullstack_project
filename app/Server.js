@@ -43,7 +43,6 @@ app.get('/search*', function(req,res){
     console.log(searchParam)  //supriya
     pool.getConnection(function(err, connection){
         if (err) throw err;
-        console.log('SELECT * FROM events where city like "%'+searchParam+'%"');
         connection.query('SELECT * FROM events where city like "%'+searchParam+'%"',
         function(err, result){
             if(err) throw err;
