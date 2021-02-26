@@ -35,13 +35,13 @@ app.get('/', async(req, res) => {
     });
 })
 
-app.get('/search', function(req,res){
-    var search_url=req.params.query //supriya
+app.get('/search*', function(req,res){
+    var search_url=req.params //supriya
     console.log(`searchURL - ${search_url}`)     //supriya
     console.log(req.query.key)  //supriya
     pool.getConnection(function(err, connection){
         if (err) throw err;
-        connection.query('SELECT * FROM events where country like "%'+req.query.key+'%"',
+        connection.query('SELECT * FROM events where city like "%'+req.query.key+'%"',
         function(err, result){
             if(err) throw err;
             const data = result;

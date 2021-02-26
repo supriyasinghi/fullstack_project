@@ -4,16 +4,7 @@ html(lang='en')
     title Event Planner
     link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/semantic-ui@2.3.3/dist/semantic.min.css')
     //- script(src ='../public/main.js' type = 'text/javascript').
-    script.
-      const searchParam = toString(document.getElementById('search')); 
-      document.addEventListener('keyup', function(e){
-        console.log('pug')//-supriya
-        console.log(`${searchParam}`)//-supriya
-        if(e.key==='Enter'){
-          var search_url =  '/search?query='+ e.id;
-          window.location.href = search_url
-        }
-      })
+
     style.
       table.ui.celled img { display: inline-block; width:80%}
       footer { margin: 35px 0 15px 0; text-align: center }
@@ -23,7 +14,7 @@ html(lang='en')
     
     .ui.search
     .ui.icon.input
-    input.prompt(id='search' name='search' type='text' placeholder='Search countries...')
+    input.prompt(id='search' name='search' type='text' placeholder='Search cities...')
 
     .i.search.icon
   .results
@@ -46,3 +37,16 @@ html(lang='en')
               td #{event.country}
 
               //-  a(href=`/views/${event.eventname}` target='popup') #{event.eventname}
+    script.
+      var searchParam;
+      document.addEventListener('keyup', function(e){
+        searchParam = document.getElementById('search').value;
+        console.log('pug')//-supriya
+        console.log(searchParam)//-supriya
+        if(e.key==='Enter'){
+          console.log(searchParam);
+          var search_url =  '/search?query='+ searchParam;
+          window.location.href = search_url
+        }
+      })
+              
