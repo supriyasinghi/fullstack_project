@@ -7,13 +7,11 @@ const axios = require("axios");
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 5000;
-//supriya
-const parser = require("body-parser");
+const parser = require("body-parser");      //supriya
 
 app.set('main', __dirname + '/components');
 app.set('view engine', 'pug');
-//supriya
-app.use(parser.json());
+app.use(parser.json());                     //supriya
 
 const pool = mysql.createPool({
     connectionLimit : 10,
