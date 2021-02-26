@@ -8,12 +8,8 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT || 5000;
 
-app.set('views', __dirname + '/views');
+app.set('main', __dirname + '/components');
 app.set('view engine', 'pug');
-
-const { JSDOM } = require( "jsdom" );
-const { window } = new JSDOM( "" );
-const $ = require( "jquery" )( window );
 
 const pool = mysql.createPool({
     connectionLimit : 10,

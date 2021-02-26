@@ -5,3 +5,5 @@ search.addEventListener('keyup', function(e){
         window.location.href = '/search?query=' + e.value;
     }
 })
+
+console.log("hello world");
