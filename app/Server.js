@@ -18,6 +18,7 @@ app.set('main', __dirname + '/components');
 app.set('view engine', 'pug');
 //supriya
 app.use(parser.json());
+app.use(express.static('assets'))
 
 const pool = mysql.createPool({
     connectionLimit : 10,
@@ -57,6 +58,26 @@ app.get('/search*', function(req,res){
             const data = result;
             console.log(data);
             res.render("main",{events: data});
+        });
+    })
+})
+//specific event in card view.
+app.get('/card*', function(req,res){
+    //let card = req.query.query
+    let searchParam = req.query.query;
+    console.log(`EVENT NAME: ${searchParam}`)
+    pool.getConnection(function(err, connection){
+        if (err) throw err;
+        connection.query(
+            'SELECT *'+
+            ' FROM events'+ 
+            ' WHERE eventname like "%'+searchParam+'%"',
+
+        function(err, result){
+            if(err) throw err;
+            const data = result;
+            console.log(data);
+            res.render("card",{events: data});
         });
     })
 })
