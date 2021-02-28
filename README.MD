@@ -16,14 +16,6 @@ Install supporting modules
     npm install mysql
     npm install pug --save
     npm install axios
-    npm install googleapis --save       <!-- for google calendar API  -->
+    npm install googleapis dotenv --save       
+    <!-- for google calendar API and 'dotenv' for confidential details/files-->
     npm install express-validator
-
-<!-- api key
-AIzaSyAQPWDG9AodtpiR6jLbxa5YUgUDjaLDdFE
-
-
-
-CLient ID - 631345616458-ijh5bjqi2rcs9vpir394t1uo24qg9ccc.apps.googleusercontent.com
-client secret - A32YmRwd5u_ssN3h8ZGKaQkY
- -->
