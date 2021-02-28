@@ -8,7 +8,7 @@ npm init
     This will create and initialize the package.json file.
     This file will contain list of all the packages and dependencies that are needed by the programs/current project. 
 
-To install express, express-session, nodemon, mysql, pug, axios
+Install supporting modules
 --------------------------------------
     npm install express --save
     npm install express-session
@@ -17,7 +17,7 @@ To install express, express-session, nodemon, mysql, pug, axios
     npm install pug --save
     npm install axios
     npm install googleapis --save       <!-- for google calendar API  -->
-
+    npm install express-validator
 
 <!-- api key
 AIzaSyAQPWDG9AodtpiR6jLbxa5YUgUDjaLDdFE
