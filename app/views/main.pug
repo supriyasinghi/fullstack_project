@@ -12,7 +12,7 @@ html(lang='en')
     main#main
     h1.ui.center.aligned.header Event Planner
     .ui.icon.input
-      input(id='search' name='search' type='text' placeholder='Search cities...')
+      input(id='search' name='search' type='text' placeholder='Search Places...')
       i.search.icon
     ui.container
       table.ui.celled.table.center.aligned
@@ -21,25 +21,40 @@ html(lang='en')
             th(width='50%') Event Name
             th City
             th Country
+            th Add to Calendar
         tbody
           each event in events
             tr
-              td
-                a(href=`/views/${event.eventname}` target='popup' 
-                  onclick="window.open('google.com','popup','width=600,height=400'); return false;")
+              td(width='30%')
+                a(href=`/card?query=${event.eventname}` name=`${event.id}`
+                  target='popup' 
+                  onclick=`window.open('/card?query='${event.eventname},"popup",'width=600,height=400,left=200,top=200'; return false;`)
                   | #{event.eventname}
+                  div
+                    img(src=event.inagelink style='width:125px; height:100px;' alt =`${event.eventname}`)
+
               td #{event.city}
               td #{event.country}
+              td 
+                a.ui.inverted.blue.button(href=`/views/${event.eventname}` target='popup' 
+                  onclick="window.open('/views/main.pug','popup','width=600,height=400'); return false;")
+                  | Add
       br
     script.
+      var cardEvent;
       var searchParam;
       document.addEventListener('keyup', function(e){
         searchParam = document.getElementById('search').value;
-        console.log(searchParam)//-supriya
         if(e.key==='Enter'){
           console.log(searchParam);
           var search_url =  '/search?query='+ searchParam;
           window.location.href = search_url
         }
       })
-              
+      //- document.addEventListener('click', function(e){
+      //-   searchParam = document.getElementsByName('name').value
+      //-   console.log(`click event : ${searchParam}`);
+      //-   var search_url =  '/card?event='+ searchParam;
+      //-   window.location.href = search_url
+      //-   window.open(`${search_url}`,'popup','width=600,height=400,left=200,top=200')
+      //- })
