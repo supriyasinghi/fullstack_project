@@ -3,7 +3,6 @@ html(lang='en')
   head
     title Event Planner
     link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/semantic-ui@2.3.3/dist/semantic.min.css')
-    //- script(src ='../public/main.js' type = 'text/javascript').
 
     style.
       table.ui.celled img { display: inline-block; width:60%}
@@ -21,6 +20,7 @@ html(lang='en')
             th(width='50%') Event Name
             th City
             th Country
+            th Rating
             th Add to Calendar
         tbody
           each event in events
@@ -33,14 +33,15 @@ html(lang='en')
                 //-     '/card?query='${event.eventname},
                 //-     "popup",'width=600,height=400,left=200,top=200';
                 //-     return false;`)
-                //-dropdown detail for each event.
+
+                //-DROPDOWN DETAIL MODE TO VIEW EACH EVENTS DESCRIPTION, ADDRESS, RATING, ETC..
                 details  
-                  summary.ui.inverted.blue(style='color:blue; cursor:zoom-in;') #{event.eventname}
+                  summary.ui.inverted.blue(style='color:blue; cursor:zoom-in;') #{event.eventname} 
                   p(background-color='#eeeeee' style='text-align:left' 
                     padding='4px' margin='5px' box-shadow='1px 1px 2px #bbbbbb')
                       img(src=event.inagelink 
                           style='width:225px; height:175px; float:left; margin:10px' 
-                          alt =`${event.eventname}`)  
+                          alt =`${event.eventname}`)
                       span 
                         b Address: #{event.address1}, 
                           span #{event.city}, 
@@ -51,10 +52,19 @@ html(lang='en')
                       div(style='text-align:justify;') Lorem ipsum dolor sit, amet consectetur adipiscing elit. Ipsa quas nemo fugit autem adipisci harum natus, perspiciatis doloribus libero doloremque, iure delectus tempora beatae sint deleniti illum aperiam laborum quia. Lorem ipsum dolor sit, amet consectetur adipiscing elit. Ipsa quas nemo fugit autem adipisci harum natus, perspiciatis doloribus libero doloremque, iure delectus tempora beatae sint deleniti illum aperiam laborum quia.
               td #{event.city}
               td #{event.country}
+              td #{event.rating}/5
               td 
-                a.ui.inverted.blue.button(href=`/views/${event.eventname}` target='popup' 
-                  onclick="window.open('/views/card.pug','popup','width=600,height=400'); return false;")
-                  | Add
+                //- a.ui.inverted.blue.button(href=`/views/${event.eventname}` target='popup' 
+                //-   onclick="window.open('/views/card.pug','popup','width=600,height=400'); return false;")
+                //-   | Add
+                a.ui.inverted.blue.button(href=`/card?query=${event.eventname}` name=`${event.id}`
+                  target='popup' 
+                  onclick=`window.open(
+                    '/card?query='${event.eventname},
+                    "popup",'width=60%,height=40%,left=200px,top=200px';
+                    return false;`)
+                  | ADD
+
       br
     script.
       var cardEvent;
