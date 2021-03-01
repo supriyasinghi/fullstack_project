@@ -19,6 +19,7 @@ app.set('view engine', 'pug');
 //supriya
 app.use(parser.json());
 app.use(express.static('assets'))
+app.use(express.static('stylesheets'))
 
 const pool = mysql.createPool({
     connectionLimit : 10,
