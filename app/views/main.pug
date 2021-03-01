@@ -26,18 +26,34 @@ html(lang='en')
           each event in events
             tr
               td(width='30%')
-                a(href=`/card?query=${event.eventname}` name=`${event.id}`
-                  target='popup' 
-                  onclick=`window.open('/card?query='${event.eventname},"popup",'width=600,height=400,left=200,top=200'; return false;`)
-                  | #{event.eventname}
-                  div
-                    img(src=event.inagelink style='width:125px; height:100px;' alt =`${event.eventname}`)
-
+                //- new window pop-up not working. it opening new window/tab.
+                //- a(href=`/card?query=${event.eventname}` name=${event.id}
+                //-   target='popup' 
+                //-   onclick=`window.open(
+                //-     '/card?query='${event.eventname},
+                //-     "popup",'width=600,height=400,left=200,top=200';
+                //-     return false;`)
+                //-dropdown detail for each event.
+                details  
+                  summary.ui.inverted.blue(style='color:blue; cursor:zoom-in;') #{event.eventname}
+                  p(background-color='#eeeeee' style='text-align:left' 
+                    padding='4px' margin='5px' box-shadow='1px 1px 2px #bbbbbb')
+                      img(src=event.inagelink 
+                          style='width:225px; height:175px; float:left; margin:10px' 
+                          alt =`${event.eventname}`)  
+                      span 
+                        b Address: #{event.address1}, 
+                          span #{event.city}, 
+                          span #{event.state},  
+                          span #{event.country} 
+                          span #{event.zipcode}.
+                          //-DESCRIPTION ABOUT EACH EVENT.
+                      div(style='text-align:justify;') Lorem ipsum dolor sit, amet consectetur adipiscing elit. Ipsa quas nemo fugit autem adipisci harum natus, perspiciatis doloribus libero doloremque, iure delectus tempora beatae sint deleniti illum aperiam laborum quia. Lorem ipsum dolor sit, amet consectetur adipiscing elit. Ipsa quas nemo fugit autem adipisci harum natus, perspiciatis doloribus libero doloremque, iure delectus tempora beatae sint deleniti illum aperiam laborum quia.
               td #{event.city}
               td #{event.country}
               td 
                 a.ui.inverted.blue.button(href=`/views/${event.eventname}` target='popup' 
-                  onclick="window.open('/views/main.pug','popup','width=600,height=400'); return false;")
+                  onclick="window.open('/views/card.pug','popup','width=600,height=400'); return false;")
                   | Add
       br
     script.
@@ -51,10 +67,3 @@ html(lang='en')
           window.location.href = search_url
         }
       })
-      //- document.addEventListener('click', function(e){
-      //-   searchParam = document.getElementsByName('name').value
-      //-   console.log(`click event : ${searchParam}`);
-      //-   var search_url =  '/card?event='+ searchParam;
-      //-   window.location.href = search_url
-      //-   window.open(`${search_url}`,'popup','width=600,height=400,left=200,top=200')
-      //- })
