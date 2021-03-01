@@ -1,32 +1,59 @@
 doctype html
 html(lang='en')
-  head
-    title Event Planner
-    link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/semantic-ui@2.3.3/dist/semantic.min.css')
-    //- script(src ='../public/main.js' type = 'text/javascript').
+head
+  title Date time picker
 
-    style.
-      table.ui.celled img { display: inline-block; width:60%}
-      footer { margin: 35px 0 15px 0; text-align: center }
-  body
-    main#main
-    h1.ui.center.aligned.header Event Details
-    ui.container.center.aligned
-        each event in events
-            span
-                img.center.aligned(src =event.inagelink alt =`${event.eventname}` style='height:300px;')
-            span
-                div.top #{event.eventname} 
-                div #{event.address1}
-                div #{event.city}, #{event.state} - #{event.zipcode}
-                div #{event.country} 
-                    a.ui.inverted.blue.button(href=`/views/${event.eventname}` target='popup' 
-                     onclick="window.open('/views/main.pug','popup','width=600,height=400'); return false;")
-                     | Add
-    //- script.
-    //-   document.addEventListener('click', function(e){
-    //-     searchParam = event.eventname;
-    //-     console.log(searchParam);
-    //-     var search_url =  '/card/'+ searchParam;
-    //-     window.location.href = search_url
-    //-   })
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
+  script(src='https://cdn.jsdelivr.net/momentjs/2.14.1/moment.min.js')
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js')
+  
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css')
+  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
+  link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/semantic-ui@2.3.3/dist/semantic.min.css')
+  link(rel='stylesheet' href='../stylesheets/styles.css')
+
+  style.
+    .container {margin-top: 40px;}
+    .btn-primary {width: 100%;}
+
+  div.container
+    each event in events
+      div.panel.panel-primary
+        div.panel-heading #{event.eventname} --&gt; Schedule an Appointment
+        div.panel-body
+          div.row
+            div.col-md-6
+              div.form-group
+                img.control-labels(src =event.inagelink alt =`${event.eventname}`
+                  style='height:300px; float:left')
+                br
+                label.control-label Address :
+                  div  #{event.city}, #{event.state} - #{event.zipcode}
+                  div  #{event.country} 
+                  div  Rating: #{event.rating} /5
+            div.col-md-6
+              div.form-group
+                label.control-label Start Date-Time
+                div#datetimepicker1.input-group.date
+                  input.form-control(type='text')
+                  span.input-group-addon
+                    span.glyphicon.glyphicon-calendar
+                br
+                label.control-label End Date-Time
+                div#datetimepicker2.input-group.date
+                  input.form-control(type='text')
+                  span.input-group-addon
+                    span.glyphicon.glyphicon-calendar
+                br
+                label.control-label Notes
+                input#notes.form-control(type='text' name='notes' maxlength='50')
+                //- input#temp_dt.form-control(type='datetime-locale' name='temp_dt' )
+        input.btn.btn-primary(type='submit' value='Add To Calendar')
+    div.footer
+
+script.
+    $(function () {
+        $('#datetimepicker1').datetimepicker();
+        $('#datetimepicker2').datetimepicker();
+    });
