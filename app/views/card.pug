@@ -1,7 +1,7 @@
 doctype html
 html(lang='en')
 head
-  title Date time picker
+  title Add Event
 
   script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
   script(src='https://cdn.jsdelivr.net/momentjs/2.14.1/moment.min.js')
@@ -22,7 +22,10 @@ head
         .ui.two.column.stackable.grid.container
           .middle.aligned.clolumn
             a.ui.middle.aligned.large.image(href=event.website)
-              image(src=event.inagelink)
+              //- image(src=event.inagelink)
+              img(src =event.inagelink alt =`${event.eventname}`
+                  style='height:300px; float:left')
+
           .column
             .ui.form
               .field
