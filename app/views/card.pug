@@ -7,21 +7,21 @@ head
   script(src='https://cdn.jsdelivr.net/momentjs/2.14.1/moment.min.js')
   script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
   script(src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js')
-  script(src='https://code.jquery.com/jquery-3.1.1.min.js' integrity='sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=' crossorigin='anonymous')
+  //script(src='https://code.jquery.com/jquery-3.1.1.min.js' integrity='sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=' crossorigin='anonymous')
   
   link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css')
   link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
   link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/semantic-ui@2.3.3/dist/semantic.min.css')
   link(rel='stylesheet' href='../stylesheets/styles.css' type='text/css')
       
-  body
+  form(action="", method="post") 
     main#main
     each event in events
       h1.ui.center.aligned.header Add #{event.eventname}
       .ui.placeholder.segment
         .ui.two.column.stackable.grid.container
           .middle.aligned.clolumn
-            a.ui.middle.aligned.large.image(href=event.website)
+            a.ui.middle.aligned.large.image()
               //- image(src=event.inagelink)
               img(src =event.inagelink alt =`${event.eventname}`
                   style='height:300px; float:left')
@@ -31,7 +31,7 @@ head
               .field
                 label Start Date-Time
                 div#datetimepicker1.input-group.date
-                  input.form-controll(type='text')
+                  input.form-control(type='text')
                   span.input-group-addon
                     span.glyphicon.glyphicon-calendar
               .field
@@ -39,7 +39,7 @@ head
                 div#datetimepicker2.input-group.date
                   input.form-control(type='text')
                   span.input-group-addon
-                    span.glyphicon.glyphicon-calendar 
+                    span.glyphicon.glyphicon-calendar
               .field 
                 label Notes
                 textarea(type='text' name='notes' maxlength='50')

@@ -27,8 +27,8 @@
     "pug": "^3.0.0",
     "react": "^16.8.0 || ^17.0.0",
     "react-dom": "^16.8.0 || ^17.0.0",
-    "semantic-ui-react": "2.0.3",
-    "react-scripts": "latest"
+    "react-scripts": "latest",
+    "semantic-ui-rating": "^2.3.1",
+    "semantic-ui-react": "2.0.3"
   }
-  
 }

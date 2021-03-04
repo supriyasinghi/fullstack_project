@@ -1,8 +1,12 @@
 doctype html
 html(lang='en')
+
   head
     title Event Planner
-    script(src='https://code.jquery.com/jquery-3.1.1.min.js' integrity='sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=' crossorigin='anonymous')
+    script(src='https://code.jquery.com/jquery-3.1.1.min.js' 
+      integrity='sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=' 
+      crossorigin='anonymous')
+      
     link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/semantic-ui@2.3.3/dist/semantic.min.css')
     link(rel='stylesheet' href='../stylesheets/styles.css' type = 'text/css')
     script(src='index.js' type="module")
@@ -22,15 +26,14 @@ html(lang='en')
             th(width='50%') Event
             th City
             th Country
-            th Rating
+            th Rating 
             th Add to Calendar
         tbody
           each event in events
             #myModal.modal
               .modal-content
                 span.close &times;
-                img.ui.medium.left.floated.image(src=`${event.inagelink}`)
-
+                //-removed image
                 h2.ui.left.aligned.header
                   | #{event.eventname}
                 a.ui.medium.left.floated.image(href=event.website)
@@ -50,24 +53,16 @@ html(lang='en')
                   |#{event.opentime} - #{event.closetime}
 
             tr
-              td.selectable(width='30%' class='selectable')
-                //- new window pop-up not working. it opening new window/tab.
-                //- a(href=`/card?query=${event.eventname}` name=${event.id}
-                //-   target='popup' 
-                //-   onclick=`window.open(
-                //-     '/card?query='${event.eventname},
-                //-     "popup",'width=600,height=400,left=200,top=200';
-                //-     return false;`)
+              td.selectable(width='25%' class='selectable')
+                img.ui.medium.left.floated.image(src=event.inagelink style='height:100px; width:125px;')
 
                 //-DROPDOWN DETAIL MODE TO VIEW EACH EVENTS DESCRIPTION, ADDRESS, RATING, ETC..
                 a(href='#') #{event.eventname}
               td #{event.city}
               td #{event.country}
-              td #{event.rating}/5
+              td #{event.rating} / 5
+                //-.ui.star.rating(data-rating='4')
               td 
-                //- a.ui.inverted.blue.button(href=`/views/${event.eventname}` target='popup' 
-                //-   onclick="window.open('/views/card.pug','popup','width=600,height=400'); return false;")
-                //-   | Add
                 a.ui.inverted.blue.button(href=`/card?query=${event.eventname}` name=`${event.id}`
                   target='popup' 
                   onclick=`window.open(
@@ -76,5 +71,8 @@ html(lang='en')
                     return false;`)
                   | ADD
 
+//- script.
+//-   $('.ui.rating')
+//-     .rating('enable')
+//-   ;
 
-                  
