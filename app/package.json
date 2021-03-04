@@ -2,7 +2,7 @@
   "name": "fullstack_project",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -22,8 +22,13 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-validator": "^6.10.0",
-    "googleapis": "^67.1.0",
+    "googleapis": "^67.1.1",
     "mysql": "^2.18.1",
-    "pug": "^3.0.0"
+    "pug": "^3.0.0",
+    "react": "^16.8.0 || ^17.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0",
+    "semantic-ui-react": "2.0.3",
+    "react-scripts": "latest"
   }
+  
 }

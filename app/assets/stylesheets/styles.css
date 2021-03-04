@@ -1,0 +1,82 @@
+:root {
+  --green: #008000;
+  --grey: #333333;
+}
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  padding: 3%;
+}
+
+.input{
+  margin-bottom: 1%;
+}
+
+.text {
+  margin-top: 0.5em;
+  color: var(--grey);
+  font-size: larger;
+}
+
+.formdiv {display: table-cell;
+  padding: 20px 10px 20px 10px; /* t r b l*/
+  margin: 20px 10px 20px 30px; /* t r b l*/
+  border-radius: 10px ;
+  width: 60%;
+  border-spacing: 10px;
+  border: solid 2px lightgray;
+  text-align : center;
+}
+
+.footer > .copyright {
+  margin: 1em;
+}
+
+.footer { margin: 35px 0 15px 0; text-align: center }
+
+.ui.header:last-child{
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 20% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  height: 50%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}

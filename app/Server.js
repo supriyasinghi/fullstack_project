@@ -14,7 +14,7 @@ const {body,validationResult} = require('express-validator');
 const { eventNames } = require('process');
 enctype="application/x-www-form-urlencoded";
 
-app.set('main', __dirname + '/components');
+app.set('main', __dirname + '/app');
 app.set('view engine', 'pug');
 //supriya
 app.use(parser.json());

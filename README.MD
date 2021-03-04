@@ -16,6 +16,10 @@ Install supporting modules
     npm install mysql
     npm install pug --save
     npm install axios
-    npm install googleapis dotenv --save       
+    npm install googleapis dotenv --save 
+    npm install -g gulp
+    npm install semantic-ui --save
+    cd semantic/
+    gulp build
     <!-- for google calendar API and 'dotenv' for confidential details/files-->
     npm install express-validator
