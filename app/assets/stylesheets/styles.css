@@ -70,7 +70,7 @@ h3.ui.header{
   border: 1px solid #888;
   width: 50%; /* Could be more or less, depending on screen size */
   height: 30%;
-  border-radius: 25px;
+  border-radius: 18px;
 }
 
 /* The Close Button */
