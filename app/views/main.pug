@@ -29,9 +29,24 @@ html(lang='en')
             #myModal.modal
               .modal-content
                 span.close &times;
-                img.ui.medium.left.floated.image(src=event.inagelink)
                 h2.ui.left.aligned.header
                   | #{event.eventname}
+                a.ui.medium.left.floated.image(href=event.website)
+                  image(src=event.inagelink)
+                h3.ui.left.aligned.header
+                  | Adress:
+                p
+                  |#{event.address1}
+                  br
+                  |#{event.city}, #{event.state} #{event.zipcode}
+                  br
+                  |#{event.country}
+                  br
+                h3.ui.left.aligned.header
+                  | Hours:
+                p
+                  |#{event.opentime} - #{event.closetime}
+
             tr
               td.selectable(width='30%' class='selectable')
                 //- new window pop-up not working. it opening new window/tab.
