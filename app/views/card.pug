@@ -16,41 +16,42 @@ head
   style.
     .container {margin-top: 40px;}
     .btn-primary {width: 100%;}
-
-  div.container
-    each event in events
-      div.panel.panel-primary
-        div.panel-heading #{event.eventname} --&gt; Schedule an Appointment
-        div.panel-body
-          div.row
-            div.col-md-6
-              div.form-group
-                img.control-labels(src =event.inagelink alt =`${event.eventname}`
-                  style='height:300px; float:left')
-                br
-                label.control-label Address :
-                  div  #{event.city}, #{event.state} - #{event.zipcode}
-                  div  #{event.country} 
-                  div  Rating: #{event.rating} /5
-            div.col-md-6
-              div.form-group
-                label.control-label Start Date-Time
-                div#datetimepicker1.input-group.date
-                  input.form-control(type='text')
-                  span.input-group-addon
-                    span.glyphicon.glyphicon-calendar
-                br
-                label.control-label End Date-Time
-                div#datetimepicker2.input-group.date
-                  input.form-control(type='text')
-                  span.input-group-addon
-                    span.glyphicon.glyphicon-calendar
-                br
-                label.control-label Notes
-                input#notes.form-control(type='text' name='notes' maxlength='50')
-                //- input#temp_dt.form-control(type='datetime-locale' name='temp_dt' )
-        input.btn.btn-primary(type='submit' value='Add To Calendar')
-    div.footer
+  body
+    div.container
+      each event in events
+        h1.ui.center.aligned.header Add #{event.eventname}
+        div.panel.panel-primary
+          div.panel-heading #{event.eventname} --&gt; Schedule an Appointment
+          div.panel-body
+            div.row
+              div.col-md-6
+                div.form-group
+                  img.control-labels(src =event.inagelink alt =`${event.eventname}`
+                    style='height:300px; float:left')
+                  br
+                  label.control-label Address :
+                    div  #{event.city}, #{event.state} - #{event.zipcode}
+                    div  #{event.country} 
+                    div  Rating: #{event.rating} /5
+              div.col-md-6
+                div.form-group
+                  label.control-label Start Date-Time
+                  div#datetimepicker1.input-group.date
+                    input.form-control(type='text')
+                    span.input-group-addon
+                      span.glyphicon.glyphicon-calendar
+                  br
+                  label.control-label End Date-Time
+                  div#datetimepicker2.input-group.date
+                    input.form-control(type='text')
+                    span.input-group-addon
+                      span.glyphicon.glyphicon-calendar
+                  br
+                  label.control-label Notes
+                  input#notes.form-control(type='text' name='notes' maxlength='50')
+                  //- input#temp_dt.form-control(type='datetime-locale' name='temp_dt' )
+          input.btn.btn-primary(type='submit' value='Add To Calendar')
+      div.footer
 
 script.
     $(function () {
