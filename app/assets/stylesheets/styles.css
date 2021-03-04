@@ -37,9 +37,15 @@ body {
 
 .footer { margin: 35px 0 15px 0; text-align: center }
 
-.ui.header:last-child{
-  margin-bottom: 0;
+/*ui edits*/
+h2.ui.header{
   margin-top: 0;
+  margin-bottom: 12px;
+}
+
+h3.ui.header{
+  margin-top: 0;
+  margin-bottom: 4px;
 }
 
 /* The Modal (background) */
@@ -62,8 +68,9 @@ body {
   margin: 20% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-  height: 50%;
+  width: 60%; /* Could be more or less, depending on screen size */
+  height: 30%;
+  border-radius: 25px;
 }
 
 /* The Close Button */
