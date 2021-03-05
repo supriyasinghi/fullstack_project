@@ -1,0 +1,25 @@
+//- include head.pug
+head
+  title #{title}
+  link(rel='stylesheet' href='../stylesheets/styles.css' type = 'text/css')
+body  
+  section    
+    nav.navbar.sticky-top.navbar-light.bg-light.right
+      ul(align='right')
+        li.li_head #{heading}
+        li
+          a.nav_link(href='/') Homepage
+        li
+          a.nav_link(href='/contact') Contact Us
+        li
+          a.nav_link(href='/about') About us
+
+  //-         table(width='50%' fontsize='16' align='right')
+            tr
+                td
+                    a(href='/') Homepage
+                td
+                    a(href='/contact') Contact Us
+                td
+                    a(href='/about') About us
+
