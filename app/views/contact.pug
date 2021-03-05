@@ -1,0 +1,34 @@
+doctype html
+html(lang='en')
+  include includes/head.pug
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet' type='text/css' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css')
+  
+  
+  form(action="", method="post") 
+    main#main
+      .ui.placeholder.segment
+        .ui.stackable.grid.container         
+          .middle.aligned.column
+            .ui.form
+              .field
+                label(for='name' aria-label='name') Name: *
+                input#name.form-control(type='text' name='name' required='' aria-required='true')
+              .field
+                label(for='email' aria-label='email') Email: *
+                input#email.form-control(type='email' name='email' aria-required='true' required='')
+              .field
+                label(for='message' aria-label='submit your message') Submit your Message:
+                textarea#message.form-control(rows='5' name='message' maxlimit='500')
+              .field
+                .checkbox
+                  label(for='signup')
+                    input#signup(type='checkbox' name='signup' aria-checked='mixed')
+                    |  Sign up for the newsletter
+              .field
+                button.btn.btn-primary(type='submit' value='Submit' aria-pressed='true' padding='10px') Submit
+                button.btn.btn-secondary(type='reset' value='Reset' padding='10px') Reset
+
+  include includes/footer.pug
