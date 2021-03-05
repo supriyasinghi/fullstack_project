@@ -36,7 +36,10 @@ app.get('/', async(req, res) => {
             if(err) throw err;
             const data = result;
             console.log(data);
-            res.render("main", {events: data});
+            res.render("main",{
+                title: "Events",
+                heading: "Event Planner",
+                events: data});
         })
     });
 })
@@ -58,7 +61,11 @@ app.get('/search*', function(req,res){
             if(err) throw err;
             const data = result;
             console.log(data);
-            res.render("main",{events: data});
+            res.render("main",{
+                title: "Events",
+                heading: "Events Search List",
+                events: data});
+            // res.render("main",{events: data});
         });
     })
 })
@@ -78,9 +85,19 @@ app.get('/card*', function(req,res){
             if(err) throw err;
             const data = result;
             console.log(data);
-            res.render("card",{events: data});
+            res.render("card",{
+                title: "Event-Schedule",
+                heading: "Schedule Event",
+                events: data});
         });
     })
+})
+
+app.get('/contact', async(req, res) => {
+    res.render("contact", {
+       title: "Contact Us",
+       heading: "Contact-Us Form",
+    });
 })
 
 app.listen(port, () => {

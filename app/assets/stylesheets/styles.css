@@ -87,3 +87,29 @@ h3.ui.header{
   text-decoration: none;
   cursor: pointer;
 }
+
+/* header navbar*/
+section {
+  text-align: right;
+  display: flex;
+  flex-flow: row wrap;
+}
+.li_head {
+  font-size: 28px;
+  /* color: #f00; */
+  font-style: italic;
+}
+
+ul li {
+  display: inline-block; /* inline*/
+  list-style-type: none;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  font-size: 16pt;
+  width: 200pt;
+  align-items: right;
+}
+.nav_link:link {
+  color: royalblue;
+  text-decoration: none;
+}

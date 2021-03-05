@@ -1,7 +1,7 @@
 doctype html
 html(lang='en')
 head
-  title Add Event
+  include includes/head.pug
 
   script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
   script(src='https://cdn.jsdelivr.net/momentjs/2.14.1/moment.min.js')
@@ -20,12 +20,11 @@ head
       h1.ui.center.aligned.header Add #{event.eventname}
       .ui.placeholder.segment
         .ui.two.column.stackable.grid.container
-          .middle.aligned.clolumn
-            a.ui.middle.aligned.large.image()
+          .middle.aligned.column
+            .ui.middle.aligned.large.image()
               //- image(src=event.inagelink)
               img(src =event.inagelink alt =`${event.eventname}`
                   style='height:300px; float:left')
-
           .column
             .ui.form
               .field
@@ -62,7 +61,8 @@ head
                   input#notes.form-control(type='text' name='notes' maxlength='50')
                   //- input#temp_dt.form-control(type='datetime-locale' name='temp_dt' )
           input.btn.btn-primary(type='submit' value='Add To Calendar')
-      div.footer
+      
+    include includes/footer.pug
 
 script.
     $(function () {

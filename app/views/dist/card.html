@@ -1,19 +1,35 @@
 <!DOCTYPE html>
 <html lang="en"></html>
 <head>
-  <title>Date time picker</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/momentjs/2.14.1/moment.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.3/dist/semantic.min.css">
-  <link rel="stylesheet" href="../stylesheets/styles.css">
   <style>
-    .container {margin-top: 40px;}
-    .btn-primary {width: 100%;}
+    a {
+        font-size: 20px;
+        color: #f00;
+    }
+    .text {
+        font-size: larger;
+        font-style: bold;
+    }
+    .sticky-top {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        background-color: white ;
+        padding: 20px;
+        font-size: 20px;
+    }
     
+    title 
+    link(rel='stylesheet', href='/stylesheets/styles.css')
+    nav.navbar.sticky-top.navbar-light.bg-light(align ='right')
+        table(width='50%' fontsize='16' align='right')
+            tr
+                td
+                    a(href='/') Homepage
+                td
+                    a(href='/contact') Contact Us
+                td
+                    a(href='/about') About us
   </style>
 </head>
 <script>

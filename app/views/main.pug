@@ -1,8 +1,7 @@
 doctype html
 html(lang='en')
-
   head
-    title Event Planner
+    include includes/head.pug
     script(src='https://code.jquery.com/jquery-3.1.1.min.js' 
       integrity='sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=' 
       crossorigin='anonymous')
@@ -12,10 +11,9 @@ html(lang='en')
     script(src='index.js' type="module")
     style.
       table.ui.celled img { display: inline-block; width:60%}
-      footer { margin: 35px 0 15px 0; text-align: center }
   body
     main#main
-    h1.ui.center.aligned.header Event Planner
+    //- h1.ui.center.aligned.header Event Planner
     .ui.icon.input
       input(id='search' name='search' type='text' placeholder='Search Places...')
       i.search.icon
@@ -70,6 +68,8 @@ html(lang='en')
                     "popup",'width=60%,height=40%,left=200px,top=200px';
                     return false;`)
                   | ADD
+
+  include includes/footer.pug
 
 //- script.
 //-   $('.ui.rating')
