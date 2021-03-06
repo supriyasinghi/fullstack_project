@@ -89,14 +89,15 @@ h3.ui.header{
 }
 
 /* header navbar*/
-section {
+/* section {
   text-align: right;
   display: flex;
   flex-flow: row wrap;
-}
+} */
 .li_head {
   font-size: 28px;
-  /* color: #f00; */
+  font-family: cursive;
+  color: mediumblue;
   font-style: italic;
 }
 
@@ -110,6 +111,13 @@ ul li {
   align-items: right;
 }
 .nav_link:link {
-  color: royalblue;
+  color: rgb(13, 71, 243);
   text-decoration: none;
+}
+.nav_link:hover {
+  color: mediumblue;
+  text-decoration: solid;
+  text-decoration-line: underline;
+  text-transform: uppercase;
+  padding: 5px;
 }
