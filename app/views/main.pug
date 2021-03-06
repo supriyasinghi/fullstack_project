@@ -52,8 +52,10 @@ html(lang='en')
 
             tr
               td.selectable(width='25%' class='selectable')
-                img.ui.medium.left.floated.image(src=event.inagelink style='height:100px; width:125px;')
-
+                img.ui.medium.left.floated.image(
+                  src=event.inagelink 
+                  style='height:100px; width:125px;' 
+                  alt=event.eventname)
                 //-DROPDOWN DETAIL MODE TO VIEW EACH EVENTS DESCRIPTION, ADDRESS, RATING, ETC..
                 a(href='#') #{event.eventname}
               td #{event.city}
