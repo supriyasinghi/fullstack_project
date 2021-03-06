@@ -96,8 +96,7 @@ h3.ui.header{
 } */
 .li_head {
   font-size: 28px;
-  font-family: cursive;
-  color: mediumblue;
+  font-family: monospace;
   font-style: italic;
 }
 
@@ -109,15 +108,15 @@ ul li {
   font-size: 16pt;
   width: 200pt;
   align-items: right;
+  border: 2px;
 }
-.nav_link:link {
-  color: rgb(13, 71, 243);
+.nav_link {
+  color: #2d2dff;
   text-decoration: none;
 }
 .nav_link:hover {
   color: mediumblue;
   text-decoration: solid;
-  text-decoration-line: underline;
   text-transform: uppercase;
   padding: 5px;
 }
