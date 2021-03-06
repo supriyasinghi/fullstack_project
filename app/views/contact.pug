@@ -4,8 +4,8 @@ head
   include includes/head.pug
   meta(charset='UTF-8')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
-   
-  form(action="", method="post") 
+body   
+  form(action="/submit" method="post" name="contact_form") 
     main#main
       .ui.raised.segment
         .ui.grid.container         
@@ -25,7 +25,7 @@ head
                   label(for='signup')
                     input#signup(type='checkbox' name='signup' aria-checked='mixed')
                     |  Sign up for the newsletter
-              .field
+              .field(margin="30pt")
                 button.btn.btn-primary(type='submit' value='Submit' aria-pressed='true' padding='10px') Submit
                 button.btn.btn-secondary(type='reset' value='Reset' padding='10px') Reset
 
