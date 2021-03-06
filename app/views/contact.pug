@@ -1,16 +1,15 @@
 doctype html
 html(lang='en')
-  include includes/head.pug
 head
+  include includes/head.pug
   meta(charset='UTF-8')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  link(rel='stylesheet' type='text/css' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css')
-  
+ 
   
   form(action="", method="post") 
     main#main
-      .ui.placeholder.segment
-        .ui.stackable.grid.container         
+      .ui.raised.segment
+        .ui.grid.container         
           .middle.aligned.column
             .ui.form
               .field
