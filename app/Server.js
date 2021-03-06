@@ -31,6 +31,23 @@ const pool = mysql.createPool({
 });
 
 app.get('/', async(req, res) => {
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+    pool.getConnection(function(err, connection){
+        if (err) throw err;
+        connection.query("SELECT * FROM events", function(err, result, fields){
+            if(err) throw err;
+            const data = result;
+            //console.log(data);
+            res.render("main",{
+                title: "Events",
+                heading: "Event Planner",
+                events: data});
+        })
+    });
+=======
+>>>>>>> Stashed changes
   pool.getConnection(function(err, connection){
     if (err) throw err;
     connection.query("SELECT * FROM events", function(err, result, fields){
@@ -43,6 +60,10 @@ app.get('/', async(req, res) => {
         events: data});
     })
   });
+<<<<<<< Updated upstream
+=======
+>>>>>>> 16210596adb665b566c636ad7cc006aad6e08962
+>>>>>>> Stashed changes
 })
 
 app.get('/search*', function(req,res){
@@ -58,6 +79,7 @@ app.get('/search*', function(req,res){
       ' OR country LIKE "%'+searchParam+'%"'+
       ' OR address1 LIKE "%'+searchParam+'%"',
 
+<<<<<<< Updated upstream
       function(err, result){
         if(err) throw err;
         const data = result;
@@ -94,6 +116,81 @@ app.get('/card*', function(req,res){
       });
   })
 })
+=======
+<<<<<<< HEAD
+        function(err, result){
+            if(err) throw err;
+            const data = result;
+            //console.log(data);
+            res.render("main",{
+                title: "Events",
+                heading: "Events Search List",
+                events: data});
+            // res.render("main",{events: data});
+        });
+    })
+})
+//specific event in card view.
+app.get('/card*', function(req,res){
+    //let card = req.query.query
+    let searchParam = req.query.query;
+    //console.log(`EVENT NAME: ${searchParam}`)
+    pool.getConnection(function(err, connection){
+        if (err) throw err;
+        connection.query(
+            'SELECT *'+
+            ' FROM events'+ 
+            ' WHERE eventname like "%'+searchParam+'%"',
+
+        function(err, result){
+            if(err) throw err;
+            const data = result;
+            //console.log(data);
+            res.render("card",{
+                title: "Event-Schedule",
+                heading: "Schedule Event",
+                events: data});
+        });
+    })
+=======
+      function(err, result){
+        if(err) throw err;
+        const data = result;
+        console.log(data);
+        res.render("main",{
+          title: "Events",
+          heading: "Events Search List",
+          events: data});
+        // res.render("main",{events: data});
+    });
+  })
+})
+
+//specific event card view on click of add button from main page.
+app.get('/card*', function(req,res){
+  //let card = req.query.query
+  let searchParam = req.query.query;
+  console.log(`EVENT NAME: ${searchParam}`)
+  pool.getConnection(function(err, connection){
+    if (err) throw err;
+    //pattern--> connection.query(sql,function(err,result){});
+    connection.query(
+      'SELECT *'+
+      ' FROM events'+ 
+      ' WHERE eventname like "%'+searchParam+'%"',
+    	function(err, result){
+        if(err) throw err;
+        const data = result;
+        console.log(data);
+        res.render("card",{
+          title: "Event-Schedule",
+          heading: "Schedule Event",
+          events: data});
+      });
+  })
+>>>>>>> 16210596adb665b566c636ad7cc006aad6e08962
+})
+>>>>>>> Stashed changes
 //Route to contact us page.
 app.get('/contact', async(req, res) => {
     res.render("contact", {

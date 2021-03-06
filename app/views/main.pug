@@ -29,35 +29,30 @@ html(lang='en')
         tbody
           each event in events
             #myModal.modal
-              .modal-content
+              .modal-content(id='modal_content')
                 span.close &times;
                 //-removed image
                 h2.ui.left.aligned.header
-                  | #{event.eventname}
-                a.ui.medium.left.floated.image(href=event.website)
-                  image(src=event.inagelink)
+                a.ui.medium.left.floated.image(id='website')
+                  image(id='img')
+                h3.ui.left.aligned.header(id='event_name')
+                  |Address
+                p(id='address')
+                p(id='address_2')
+                p(id='country')
+                br
                 h3.ui.left.aligned.header
-                  | Address:
-                p
-                  |#{event.address1}
-                  br
-                  |#{event.city}, #{event.state} #{event.zipcode}
-                  br
-                  |#{event.country}
-                  br
-                h3.ui.left.aligned.header
-                  | Hours:
-                p
-                  |#{event.opentime} - #{event.closetime}
+                  | Hours
+                p(id='hours')
 
-            tr
+            tr(id = "{\"name\":\""+event.eventname+"\",\n\"address1\":\""+event.address1+"\",\n\"city\":\""+event.city+"\",\n\"state\":\""+event.state+"\",\n\"zipcode\":\""+event.zipcode+"\",\n\"country\":\""+event.country+"\",\n\"open\":\""+event.opentime+"\",\n\"close\":\""+event.closetime+"\",\n\"website\":\""+event.website+"\",\n\"link\":\""+event.inagelink+"\"}")
               td.selectable(width='25%' class='selectable')
                 img.ui.medium.left.floated.image(
                   src=event.inagelink 
                   style='height:100px; width:125px;' 
                   alt=event.eventname)
                 //-DROPDOWN DETAIL MODE TO VIEW EACH EVENTS DESCRIPTION, ADDRESS, RATING, ETC..
-                a(href='#') #{event.eventname}
+                a(href='#' id='event') #{event.eventname}
               td #{event.city}
               td #{event.country}
               td #{event.rating} / 5

@@ -48,6 +48,10 @@ h3.ui.header{
   margin-bottom: 4px;
 }
 
+p{
+  margin-bottom: 2px;
+}
+
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
