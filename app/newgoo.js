@@ -1,5 +1,3 @@
-const { data } = require('jquery')
-
 module.exports = {
     add: 
     function addEvent(start, end, note, event){
