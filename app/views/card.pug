@@ -7,9 +7,10 @@ head
   script(src='https://cdn.jsdelivr.net/momentjs/2.14.1/moment.min.js')
   script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
   script(src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js')
+  script(src='addcal.js' type="module")
   //script(src='https://code.jquery.com/jquery-3.1.1.min.js' integrity='sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=' crossorigin='anonymous')
   
-  form(action="", method="post") 
+  form(action="/submit" method="post" name="add_form") 
     main#main
     each event in events
       h1.ui.center.aligned.header Add #{event.eventname}
@@ -23,21 +24,21 @@ head
           .column
             .ui.form
               .field
-                label Start Date-Time
+                label(for='start') Start Date-Time
                 div#datetimepicker1.input-group.date
-                  input.form-control(type='text')
+                  input.form-control(type='text' name='start' required='true')
                   span.input-group-addon
                     span.glyphicon.glyphicon-calendar
               .field
-                label End Date-Time
+                label(for='end') End Date-Time
                 div#datetimepicker2.input-group.date
-                  input.form-control(type='text')
+                  input.form-control(type='text' name='end' required='true')
                   span.input-group-addon
                     span.glyphicon.glyphicon-calendar
               .field 
-                label Notes
-                textarea(type='text' name='notes' maxlength='50')
-              .ui.blue.submit.button Add to Calendar
+                label(for='notes') Notes
+                textarea(type='text' name='notes' maxlength='50' required='')
+              .ui.blue.submit.button(id='add' type='submit' value='submit') Add to Calendar
         //
                 div.form-group
                   label.control-label Start Date-Time

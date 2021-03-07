@@ -2,6 +2,8 @@
 //Full Stack Project
 //
 //Setup
+var calendar = require('./newgoo');
+
 var mysql = require('mysql');
 const axios = require("axios");
 const express = require("express");
@@ -94,6 +96,33 @@ app.get('/card*', function(req,res){
       });
   })
 })
+
+//add event to calendar
+app.post('/card*', urlencodedParser, async(req, res, next) => {
+
+  let searchParam = req.query.query;
+  console.log(`EVENT NAME: ${searchParam}`)
+  pool.getConnection(function(err, connection){
+    if (err) throw err;
+    //pattern--> connection.query(sql,function(err,result){});
+    connection.query(
+      'SELECT *'+
+      ' FROM events'+ 
+      ' WHERE eventname like "%'+searchParam+'%"',
+    	function(err, result){
+        if(err) throw err;
+        const data = result;
+        console.log(data);
+
+   //Get data from contact-form input-fields
+   let start = req.body.start;
+   let end = req.body.end;
+   let notes = req.body.notes;
+
+   console.log(typeof calendar.add(start, end, notes, data));
+
+})
+
 //Route to contact us page.
 app.get('/contact', async(req, res) => {
     res.render("contact", {
