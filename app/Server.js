@@ -6,6 +6,8 @@ const calendar = require('./newgoo.js');
 var mysql = require('mysql');
 const axios = require("axios");
 const express = require("express");
+var path = require('path')
+var serverStatic = require('serve-static')
 const app = express();
 const port = process.env.PORT || 5000;
 
@@ -17,12 +19,14 @@ const { check } = require('yargs');
 const { typeOf } = require('react-is');
 enctype="application/x-www-form-urlencoded";
 
-app.set('main', __dirname + '/app');
+app.set('views', path.join(__dirname, 'views'));
+app.set('main', __dirname + '/views');
 app.set('view engine', 'pug');
 
 app.use(parser.json());
 app.use(express.static('assets'))
 app.use(express.static('stylesheets'))
+app.use(serverStatic(path.join(__dirname, 'app')))
 
 const pool = mysql.createPool({
     connectionLimit : 10,
