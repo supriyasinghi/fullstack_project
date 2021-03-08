@@ -2,6 +2,9 @@
   "name": "fullstack_project",
   "version": "1.0.0",
   "main": "index.js",
+  "enginges": {
+    "node": "12.17.x"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -30,6 +33,7 @@
     "react-scripts": "latest",
     "semantic-ui-rating": "^2.3.1",
     "semantic-ui-react": "2.0.3",
+    "socket.io": "^3.1.2",
     "yargs": "^15.4.1"
   },
   "description": ""
