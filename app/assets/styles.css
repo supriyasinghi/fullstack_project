@@ -104,9 +104,14 @@ p{
   flex-flow: row wrap;
 } */
 .li_head {
-  font-size: 28px;
-  font-family: monospace;
-  font-style: italic;
+    font-size: 2rem;
+    margin: calc(2rem - .14285714em) 0 1rem;
+    padding: 0 0;
+    font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    font-weight: 700;
+    line-height: 1.28571429em;
+    text-transform: none;
+    color: rgba(0,0,0,.87);
 }
 
 ul li {

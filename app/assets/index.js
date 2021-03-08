@@ -48,7 +48,7 @@ function modalDisplay(){
         document.getElementById('hours').innerHTML = data.open+' - '+data.close;
         //image
         document.getElementById('website').href=data.website;
-        document.getElementById('img').src= data.link;
+        document.getElementById('img').src= 'assets/'+data.link;
       }
     })(i);
   }

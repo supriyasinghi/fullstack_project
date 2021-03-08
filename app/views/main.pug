@@ -7,8 +7,8 @@ html(lang='en')
       crossorigin='anonymous')
       
     link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/semantic-ui@2.3.3/dist/semantic.min.css')
-    link(rel='stylesheet' href='../stylesheets/styles.css' type = 'text/css')
-    script(src='index.js' type="module")
+    link(rel='stylesheet' href='/assets/styles.css')
+    script(src='assets/index.js' type="module")
     style.
       table.ui.celled img { display: inline-block; width:60%}
   body
@@ -48,7 +48,7 @@ html(lang='en')
             tr(id = "{\"name\":\""+event.eventname+"\",\n\"address1\":\""+event.address1+"\",\n\"city\":\""+event.city+"\",\n\"state\":\""+event.state+"\",\n\"zipcode\":\""+event.zipcode+"\",\n\"country\":\""+event.country+"\",\n\"open\":\""+event.opentime+"\",\n\"close\":\""+event.closetime+"\",\n\"website\":\""+event.website+"\",\n\"link\":\""+event.inagelink+"\"}")
               td.selectable(width='25%' class='selectable')
                 img.ui.medium.left.floated.image(
-                  src=event.inagelink 
+                  src= 'assets/'+event.inagelink 
                   style='height:100px; width:125px;' 
                   alt=event.eventname
                   )

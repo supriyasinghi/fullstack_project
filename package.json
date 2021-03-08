@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "enginges": {
-    "node": "12.17.x"
+    "node": "git che12.17.x"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
