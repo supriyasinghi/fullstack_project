@@ -1,6 +1,5 @@
 //Madisen Hallberg
 //Full Stack Project
-//
 //Setup
 const calendar = require('./newgoo.js');
 
@@ -27,10 +26,10 @@ app.use(express.static('stylesheets'))
 
 const pool = mysql.createPool({
     connectionLimit : 10,
-    host: "localhost",
-    user: "eventplanner",
-    password: "eventplanner",
-    database: "events"
+    host: "pxukqohrckdfo4ty.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    user: "y8k6hs82i6kf8ygr",
+    password: "rtvqvstv259gqoa1",
+    database: "o6x6wct8kqeeydyz"
 });
 
 app.get('/', async(req, res) => {

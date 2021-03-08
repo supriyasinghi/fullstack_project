@@ -2,7 +2,7 @@ module.exports = {
     addToCal: 
     //function addEvent(start, end, notes, event){
     function addEvent(start, end, notes, address, eventname){
-            const { google } = require('googleapis')
+        const { google } = require('googleapis')
         const {OAuth2} = google.auth
         //madisen
         // const oAuth2Client = new OAuth2(
