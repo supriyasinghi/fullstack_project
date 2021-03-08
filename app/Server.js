@@ -2,7 +2,7 @@
 //Full Stack Project
 //
 //Setup
-var calendar = require('./newgoo');
+const calendar = require('./newgoo.js');
 
 var mysql = require('mysql');
 const axios = require("axios");
@@ -15,6 +15,7 @@ const urlencodedParser = parser.urlencoded({ extended: false });
 const {body,validationResult} = require('express-validator');
 const { eventNames } = require('process');
 const { check } = require('yargs');
+const { typeOf } = require('react-is');
 enctype="application/x-www-form-urlencoded";
 
 app.set('main', __dirname + '/app');
@@ -51,7 +52,6 @@ app.get('/search*', function(req,res){
   let searchParam = req.query.query;
   pool.getConnection(function(err, connection){
     if (err) throw err;
-    // connection.query('SELECT * FROM events where city like "%'+searchParam+'%"',
     connection.query(
       'SELECT *'+
       ' FROM events'+ 
@@ -68,12 +68,11 @@ app.get('/search*', function(req,res){
           title: "Events",
           heading: "Events Search List",
           events: data});
-        // res.render("main",{events: data});
     });
   })
 })
 
-//specific event card view on click of add button from main page.
+//view specific event card on click of add button from main page.
 app.get('/card*', function(req,res){
   //let card = req.query.query
   let searchParam = req.query.query;
@@ -97,32 +96,6 @@ app.get('/card*', function(req,res){
   })
 })
 
-//add event to calendar
-app.post('/card*', urlencodedParser, async(req, res, next) => {
-
-  let searchParam = req.query.query;
-  console.log(`EVENT NAME: ${searchParam}`)
-  pool.getConnection(function(err, connection){
-    if (err) throw err;
-    //pattern--> connection.query(sql,function(err,result){});
-    connection.query(
-      'SELECT *'+
-      ' FROM events'+ 
-      ' WHERE eventname like "%'+searchParam+'%"',
-    	function(err, result){
-        if(err) throw err;
-        const data = result;
-        console.log(data);
-
-   //Get data from contact-form input-fields
-   let start = req.body.start;
-   let end = req.body.end;
-   let notes = req.body.notes;
-
-   console.log(typeof calendar.add(start, end, notes, data));
-
-})
-
 //Route to contact us page.
 app.get('/contact', async(req, res) => {
     res.render("contact", {
@@ -132,64 +105,105 @@ app.get('/contact', async(req, res) => {
 })
 
 app.get('/submit',function(req,res){
-    res.render('contact');  //check what file name will come, index or contact
+    res.render('contact'); 
 });
 
-app.post('/submit', urlencodedParser, async(req, res, next) => {
-  let d = new Date()
-  let contact_date= d.getTime()
-  //Get data from contact-form input-fields
-  let contact_name = req.body.name;
-  let contact_email = req.body.email;
-  let contact_message;
-  let contact_signup;
+app.post('/submit*', urlencodedParser, async(req, res, next) => {
+  let current_url = req.url
+  console.log(current_url)
+  //add event to calendar
+  if (current_url==="/submit/addcal") {
+    //Get data from card-form input-fields to add in calendar
+    searchParam = req.body.cal_event
+    let event_id = req.body.event_id
+    let start = req.body.start;
+    let end = req.body.end;
+    let notes = req.body.notes;
+    let address = req.body.address;
 
-  //validate
-  if (req.body.message != '')
-    contact_message = req.body.message;
-  else contact_message = 'No Feedback was submitted'
-  
-  if (req.body.signup == true){
-    contact_signup = 'yes';
+    console.log(`ADD -> EVENT NAME: ${searchParam}`)
+    console.log(`Details -> ${start}  -  ${end}`)
+    console.log(`Notes= ${notes} `)
+    console.log(`Location: ${address}`)
+
+    pool.getConnection(function(err, connection){
+      if (err) throw err;
+      //pattern--> connection.query(sql,function(err,result){});
+      connection.query(
+        'SELECT *'+
+        ' FROM events'+ 
+        ' WHERE eventname="'+searchParam+'"',
+        function(err, result){
+          if(err) throw err;
+          const data = result;
+          console.log(`calendar-${data}`);
+        });
+        console.log(typeOf (calendar.addToCal(start, end, notes, address, searchParam)));
+        res.render("submit",{
+          title: "Event-Scheduled",
+          heading: "Add to Calendar",
+          subheading1: `${searchParam} is added to calendar.`,
+          subheading2: `${address}`
+                      | `Start Date: ${start}`
+                      | `End Date: ${end}`
+                      | `Notes: ${notes}`
+        });
+    })
   }
-  else contact_signup = 'No';
+  //contact us page call
+  else {
+      let d = new Date()
+      let contact_date= d.getTime()
+      //Get data from contact-form input-fields
+      let contact_name = req.body.name;
+      let contact_email = req.body.email;
+      let contact_message;
+      let contact_signup;
 
-//Contact up form validation
-  console.group('==========Form Submission==========')
-  // console.log('Name : ', contact_name)
-  // console.log('Email : ', contact_email)
-  console.log(`New Data in Contact Us`)
-  console.log(`Name: ${contact_name}`)
-  console.log(`Email: ${contact_email}`)
-  console.log(`Message: ${contact_message}`)
-  console.log(`Signup: ${contact_signup}`)
-  console.log(`Date: ${contact_date}`)
-  console.groupEnd()
+      //validate
+      if (req.body.message != '')
+        contact_message = req.body.message;
+      else contact_message = 'No Feedback was submitted'
+      
+      if (req.body.signup == true){
+        contact_signup = 'yes';
+      }
+      else contact_signup = 'No';
 
-  pool.getConnection(function(err, connection){
-    if (err) throw  err;
-    console.log("connected");
-    const insert_sql ="INSERT INTO contactus "+
-                      "(`cname`,`email`,`message`,`signup`,`date`)"+
-                      " VALUES ("+
-                      "'"+contact_name+
-                      "','"+contact_email+
-                      "','"+contact_message+
-                      "','"+contact_signup+
-                      "','"+contact_date+
-                      "')";
-    connection.query(insert_sql, function(err, result){
-      if(err) throw err;
-      console.log("Contact-Us Entry created");
-    });
+      console.group('==========Form Submission==========')
+      console.log(`New Data in Contact Us`)
+      console.log(`Name: ${contact_name}`)
+      console.log(`Email: ${contact_email}`)
+      console.log(`Message: ${contact_message}`)
+      console.log(`Signup: ${contact_signup}`)
+      console.log(`Date: ${contact_date}`)
+      console.groupEnd()
 
-    res.render("submit",{
-      title: "Thanks",
-      heading: "Form Submitted",
-      subheading1 : `Thankyou '${contact_name}' for contacting us.`,
-      subheading2 : `We will get back to you at '${contact_email}' as soon as possible.`,
-    });
-  })
+      pool.getConnection(function(err, connection){
+        if (err) throw  err;
+        console.log("connected");
+        const insert_sql ="INSERT INTO contactus "+
+                          "(`cname`,`email`,`message`,`signup`,`date`)"+
+                          " VALUES ("+
+                          "'"+contact_name+
+                          "','"+contact_email+
+                          "','"+contact_message+
+                          "','"+contact_signup+
+                          "','"+contact_date+
+                          "')";
+        connection.query(insert_sql, function(err, result){
+          if(err) throw err;
+          console.log("Contact-Us Entry created");
+        });
+
+        res.render("submit",{
+          title: "Thanks",
+          heading: "Form Submitted",
+          subheading1 : `Thankyou '${contact_name}' for contacting us.`,
+          subheading2 : `We will get back to you at '${contact_email}' as soon as possible.`,
+        });
+      })
+  }
 })
 
 app.listen(port, () => {
