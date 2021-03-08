@@ -26,7 +26,6 @@ app.set('view engine', 'pug');
 
 app.use(parser.json());
 app.use(express.static('assets'))
-app.use(express.static(__dirname + '/stylesheets'))
 app.use(express.static(__dirname));
 app.use(serverStatic(path.join(__dirname, 'app')))
 
