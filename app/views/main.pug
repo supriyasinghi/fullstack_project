@@ -15,21 +15,21 @@ html(lang='en')
     main#main
     //- h1.ui.center.aligned.header Event Planner
     .ui.icon.input
-      input(id='search' name='search' type='text' placeholder='Search Places...')
+      input(id='search' name='search' type='text' placeholder='Search Places...' aria-label='Search')
       i.search.icon
     ui.container
       table.ui.celled.table.center.aligned(id='tableId')
         thead
           tr
-            th(width='50%') Event
-            th City
-            th Country
-            th Rating 
-            th Add to Calendar
+            th(width='50%' aria-label='Event') Event
+            th(aria-label='City') City
+            th(aria-label='Country') Country
+            th(aria-label='Rating') Rating 
+            th(aria-label='Add to Calendar') Add to Calendar
         tbody
           each event in events
             #myModal.modal
-              .modal-content(id='modal_content')
+              .modal-content(id='modal_content' aria-modal_content)
                 span.close &times;
                 //-removed image
                 h2.ui.left.aligned.header
@@ -50,9 +50,10 @@ html(lang='en')
                 img.ui.medium.left.floated.image(
                   src=event.inagelink 
                   style='height:100px; width:125px;' 
-                  alt=event.eventname)
+                  alt=event.eventname
+                  )
                 //-DROPDOWN DETAIL MODE TO VIEW EACH EVENTS DESCRIPTION, ADDRESS, RATING, ETC..
-                a(href='#' id='event') #{event.eventname}
+                a(href='#' id='event' aria-modal) #{event.eventname}
               td #{event.city}
               td #{event.country}
               td #{event.rating} / 5
@@ -63,7 +64,7 @@ html(lang='en')
                   onclick=`window.open(
                     '/card?query='${event.eventname},
                     "popup",'width=60%,height=40%,left=200px,top=200px';
-                    return false;`)
+                    return false;` aria-button ='Add to Calendar')
                   | ADD
 
   include includes/footer.pug
