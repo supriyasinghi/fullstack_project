@@ -1,6 +1,6 @@
 module.exports = {
     add: 
-    function addEvent(start, end, note, event){
+    function addEvent(start, end, note, new_event){
         const { google } = require('googleapis')
         
         const {OAuth2} = google.auth
@@ -21,7 +21,7 @@ module.exports = {
     
         const eventEndTime = new Date(end)
 
-        const address = event.address1 + ' ' + event.city + ', ' + event.zipcode + ' ' + event.country
+        const address = new_event.address1 + ' ' + new_event.city + ', ' + new_event.zipcode + ' ' + new_event.country
     
         const event = {
             summary: event.eventname,

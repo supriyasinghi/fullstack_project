@@ -1,7 +1,7 @@
 //Madisen Hallberg
 //Full Stack Project
 //
-//Setup
+//Setup*
 var calendar = require('./newgoo');
 
 var mysql = require('mysql');
@@ -26,10 +26,10 @@ app.use(express.static('stylesheets'))
 
 const pool = mysql.createPool({
     connectionLimit : 10,
-    host: "localhost",
-    user: "eventplanner",
-    password: "eventplanner",
-    database: "events"
+    host: "pxukqohrckdfo4ty.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    user: "y8k6hs82i6kf8ygr",
+    password: "rtvqvstv259gqoa1",
+    database: "o6x6wct8kqeeydyz"
 });
 
 app.get('/', async(req, res) => {
@@ -100,7 +100,7 @@ app.get('/card*', function(req,res){
 //add event to calendar
 app.post('/card*', urlencodedParser, async(req, res, next) => {
 
-  let searchParam = req.query.query;
+  /*let searchParam = req.query.query;
   console.log(`EVENT NAME: ${searchParam}`)
   pool.getConnection(function(err, connection){
     if (err) throw err;
@@ -112,7 +112,7 @@ app.post('/card*', urlencodedParser, async(req, res, next) => {
     	function(err, result){
         if(err) throw err;
         const data = result;
-        console.log(data);
+        console.log(data);*/
 
    //Get data from contact-form input-fields
    let start = req.body.start;
@@ -121,7 +121,7 @@ app.post('/card*', urlencodedParser, async(req, res, next) => {
 
    console.log(typeof calendar.add(start, end, notes, data));
 
-})
+});
 
 //Route to contact us page.
 app.get('/contact', async(req, res) => {
