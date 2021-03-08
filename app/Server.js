@@ -20,6 +20,7 @@ const { typeOf } = require('react-is');
 enctype="application/x-www-form-urlencoded";
 
 app.set('views', path.join(__dirname, 'views'));
+app.set('assets', path.join(__dirname, 'assets'));
 app.set('main', __dirname + '/views');
 app.set('view engine', 'pug');
 
