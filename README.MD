@@ -19,3 +19,5 @@ Install supporting modules
     npm install googleapis dotenv --save
     <!-- for google calendar API and 'dotenv' for confidential details/files-->
     npm install express-validator
+    npm i yargs
+    npm i react-is
