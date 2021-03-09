@@ -14,60 +14,63 @@ html(lang='en')
   body
     main#main
     //- h1.ui.center.aligned.header Event Planner
-    .ui.icon.input
-      input(id='search' name='search' type='text' placeholder='Search Places...' aria-label='Search')
-      i.search.icon
-    ui.container
-      table.ui.celled.table.center.aligned(id='tableId')
-        thead
-          tr
-            th(width='50%' aria-label='Event') Event
-            th(aria-label='City') City
-            th(aria-label='Country') Country
-            th(aria-label='Rating') Rating 
-            th(aria-label='Add to Calendar') Add to Calendar
-        tbody
-          each event in events
-            #myModal.modal
-              .modal-content(id='modal_content' aria-modal_content)
-                span.close &times;
-                //-removed image
-                h2.ui.left.aligned.header
-                a.ui.medium.left.floated.image(id='website')
-                  image(id='img')
-                h3.ui.left.aligned.header(id='event_name')
-                  |Address
-                p(id='address')
-                p(id='address_2')
-                p(id='country')
-                br
-                h3.ui.left.aligned.header
-                  | Hours
-                p(id='hours')
+    div.grid-container
+      div.grid-item(id='search_container')
+        .ui.icon.input
+          input(id='search' name='search' type='text' placeholder='Search Places...' aria-label='Search')
+          i.search.icon
+      div.grid-item(id='table_container')
+        ui.container(id='container')
+          table.ui.celled.table.center.aligned(id='tableId')
+            thead
+              tr
+                th(width='50%' aria-label='Event') Event
+                th(aria-label='City') City
+                th(aria-label='Country') Country
+                th(aria-label='Rating') Rating 
+                th(aria-label='Add to Calendar') Add to Calendar
+            tbody
+              each event in events
+                #myModal.modal
+                  .modal-content(id='modal_content' aria-modal_content)
+                    span.close &times;
+                    //-removed image
+                    h2.ui.left.aligned.header
+                    a.ui.medium.left.floated.image(id='website')
+                      image(id='img')
+                    h3.ui.left.aligned.header(id='event_name')
+                      |Address
+                    p(id='address')
+                    p(id='address_2')
+                    p(id='country')
+                    br
+                    h3.ui.left.aligned.header
+                      | Hours
+                    p(id='hours')
 
-            tr(id = "{\"name\":\""+event.eventname+"\",\n\"address1\":\""+event.address1+"\",\n\"city\":\""+event.city+"\",\n\"state\":\""+event.state+"\",\n\"zipcode\":\""+event.zipcode+"\",\n\"country\":\""+event.country+"\",\n\"open\":\""+event.opentime+"\",\n\"close\":\""+event.closetime+"\",\n\"website\":\""+event.website+"\",\n\"link\":\""+event.inagelink+"\"}")
-              td.selectable(width='25%' class='selectable')
-                img.ui.medium.left.floated.image(
-                  src= 'assets/'+event.inagelink 
-                  style='height:100px; width:125px;' 
-                  alt=event.eventname
-                  )
-                //-DROPDOWN DETAIL MODE TO VIEW EACH EVENTS DESCRIPTION, ADDRESS, RATING, ETC..
-                a(href='#' id='event' aria-modal) #{event.eventname}
-              td #{event.city}
-              td #{event.country}
-              td #{event.rating} / 5
-                //-.ui.star.rating(data-rating='4')
-              td 
-                a.ui.inverted.blue.button(href=`/card?query=${event.eventname}` name=`${event.id}`
-                  target='popup' 
-                  onclick=`window.open(
-                    '/card?query='${event.eventname},
-                    "popup",'width=60%,height=40%,left=200px,top=200px';
-                    return false;` aria-button ='Add to Calendar')
-                  | ADD
+                tr(id = "{\"name\":\""+event.eventname+"\",\n\"address1\":\""+event.address1+"\",\n\"city\":\""+event.city+"\",\n\"state\":\""+event.state+"\",\n\"zipcode\":\""+event.zipcode+"\",\n\"country\":\""+event.country+"\",\n\"open\":\""+event.opentime+"\",\n\"close\":\""+event.closetime+"\",\n\"website\":\""+event.website+"\",\n\"link\":\""+event.inagelink+"\"}")
+                  td.selectable(width='25%' class='selectable')
+                    img.ui.medium.left.floated.image(
+                      src= 'assets/'+event.inagelink 
+                      style='height:100px; width:125px;' 
+                      alt=event.eventname
+                      )
+                    //-DROPDOWN DETAIL MODE TO VIEW EACH EVENTS DESCRIPTION, ADDRESS, RATING, ETC..
+                    a(href='#' id='event' aria-modal) #{event.eventname}
+                  td #{event.city}
+                  td #{event.country}
+                  td #{event.rating} / 5
+                    //-.ui.star.rating(data-rating='4')
+                  td 
+                    a.ui.inverted.blue.button(href=`/card?query=${event.eventname}` name=`${event.id}`
+                      target='popup' 
+                      onclick=`window.open(
+                        '/card?query='${event.eventname},
+                        "popup",'width=60%,height=40%,left=200px,top=200px';
+                        return false;` aria-button ='Add to Calendar')
+                      | ADD
 
-  include includes/footer.pug
+      include includes/footer.pug
 
 //- script.
 //-   $('.ui.rating')
