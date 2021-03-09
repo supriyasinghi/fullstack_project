@@ -8,7 +8,7 @@ body
   form(action="/submit" method="post" name="contact_form") 
     main#main
       .ui.raised.segment
-        .ui.grid.container         
+        .ui.grid.container
           .middle.aligned.column
             .ui.form
               .field
@@ -16,9 +16,9 @@ body
                 input#name.form-control(type='text' name='name' required='' aria-required='true')
               .field
                 label(for='email' aria-label='email') Email: *
-                input#email.form-control(type='email' name='email' aria-required='true' required='')
+                input#email.form-control(type='email' name='email' required='' aria-required='true')
               .field
-                label(for='message' aria-label='submit your message') Submit your Message:
+                label(for='message' aria-label='message') Submit your Message:
                 textarea#message.form-control(rows='5' name='message' maxlimit='500')
               .field
                 .checkbox
@@ -26,7 +26,7 @@ body
                     input#signup(type='checkbox' name='signup' aria-checked='mixed')
                     |  Sign up for the newsletter
               .field(margin="30pt")
-                button.btn.btn-primary(type='submit' value='Submit' aria-pressed='true' padding='10px') Submit
-                button.btn.btn-secondary(type='reset' value='Reset' padding='10px') Reset
+                button.btn.btn-primary(type='submit' value='Submit' aria-label='submit' aria-pressed='true' padding='10px') Submit
+                button.btn.btn-secondary(type='reset' value='Reset' padding='10px' aria-label='reset') Reset
 
   include includes/footer.pug

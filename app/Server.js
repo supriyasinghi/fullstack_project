@@ -125,10 +125,12 @@ app.post('/submit*', urlencodedParser, async(req, res, next) => {
     let notes = req.body.notes;
     let address = req.body.address;
 
-    console.log(`ADD -> EVENT NAME: ${searchParam}`)
+    console.group('========== Add Event in Calendar ==========')
+    console.log(`EVENT NAME: ${searchParam}`)
+    console.log(`Location: ${address}`)
     console.log(`Details -> ${start}  -  ${end}`)
     console.log(`Notes= ${notes} `)
-    console.log(`Location: ${address}`)
+    console.groupEnd()
 
     pool.getConnection(function(err, connection){
       if (err) throw err;
@@ -147,10 +149,10 @@ app.post('/submit*', urlencodedParser, async(req, res, next) => {
           title: "Event-Scheduled",
           heading: "Add to Calendar",
           subheading1: `${searchParam} is added to calendar.`,
-          subheading2: `${address}`
-                      | `Start Date: ${start}`
-                      | `End Date: ${end}`
-                      | `Notes: ${notes}`
+          subheading2: `${address}`,
+          subheading3: `Start Date: ${start}`,
+          subheading4: `End Date: ${end}`,
+          subheading5: `Notes: ${notes}`
         });
     })
   }

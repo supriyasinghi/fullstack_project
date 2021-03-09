@@ -109,10 +109,16 @@ p{
 
 /* header navbar*/
 .sticky {
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
   width: 100%;
 }
+/* .sticky {
+  position: sticky;
+  top: 0;
+  width: 100%; 
+}*/
 
 .title {
     font-size: 2rem;
@@ -132,7 +138,7 @@ ul li {
   display: inline-block; /* inline*/
   list-style-type: none;
   margin-top: 2%;
-  margin-right: 5%;
+  margin-right: 4%;
   /* padding-bottom: 5px; */
   font-size: 16pt;
   border: 2px;

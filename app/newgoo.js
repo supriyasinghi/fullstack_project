@@ -26,10 +26,7 @@ module.exports = {
         const calendar = google.calendar({version: 'v3', auth: oAuth2Client })
         const eventStartTime = new Date(start)
         const eventEndTime = new Date(end)
-        //const address = address
-        //const address = event.address1 + ' ' + event.city + ', ' + event.zipcode + ' ' + event.country
         const cal_event = {
-            //summary: event.eventname,
             summary: eventname,
             location: address,
             description: notes,

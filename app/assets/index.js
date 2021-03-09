@@ -60,3 +60,9 @@ window.onload = function(){
 function insertAfter(referenceNode, newNode){
   referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
 }
+
+//card.pug date copy
+function copydate() {
+  let startdate = document.getElementById('start');
+  document.getElementById('end').value = startdate.value
+}

@@ -28,13 +28,22 @@ head
               .field
                 label(for='start' aria-label='Start Date') Start Date-Time
                 div#datetimepicker1.input-group.date
-                  input.form-control(type='text' id='start' name='start' required='true' aria-required='true')
+                  input.form-control(type='text' 
+                                    id='start' 
+                                    name='start' 
+                                    required='true' 
+                                    aria-required='true' 
+                                    onblur ='copydate()')
                   span.input-group-addon
                     span.glyphicon.glyphicon-calendar(aria-popup)
               .field
                 label(for='end' aria-label='End Date') End Date-Time
                 div#datetimepicker2.input-group.date
-                  input.form-control(type='text' id='end' name='end' required='true' aria-required='true')
+                  input.form-control(type='text' 
+                                    id='end' 
+                                    name='end' 
+                                    required='true' 
+                                    aria-required='true')
                   span.input-group-addon
                     span.glyphicon.glyphicon-calendar(aria-popup='Date Time')
               .field 
