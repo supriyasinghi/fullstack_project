@@ -6,20 +6,21 @@ head
   link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/semantic-ui@2.3.3/dist/semantic.min.css')
   link(rel='stylesheet' href='assets/styles.css' type='text/css')
       
-body 
-  .ui.sticky.horizontal.bulleted.list(align="right")
-    nav.navbar.navbar-light.right
-      ul(align='right')
-        li
-          a(href='/')
-            img(src='assets/images/logo.png' alt ='Event Planner Logo' height='75px' align ='left')
-        li.li_head #{heading}
-        li
-          a.nav_link(href='/') Home 
-        li
-          a.nav_link(href='/contact') Contact Us
-        li
-          a.nav_link(href='/about') About us
+body
+  .div.grid-container.headerbar
+    .div.grid-item
+      .ui.sticky.horizontal.bulleted.list
+          //-a(href='/')
+            img.logo(src='assets/images/logo.png' alt ='Event Planner Logo' height='75px' align ='left')
+          nav.navbar
+            ul
+              li.title #{heading}
+              li
+                a.nav_link(href='/') Home 
+              li
+                a.nav_link(href='/contact') Contact Us
+              li
+                a.nav_link(href='/about') About Us
 
   //-         table(width='50%' fontsize='16' align='right')
             tr
