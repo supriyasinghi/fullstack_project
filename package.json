@@ -2,7 +2,7 @@
   "name": "fullstack_project",
   "version": "1.0.0",
   "main": "index.js",
-  "enginges": {
+  "engines": {
     "node": "git che12.17.x"
   },
   "scripts": {
