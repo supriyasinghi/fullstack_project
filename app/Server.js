@@ -1,4 +1,5 @@
 //Madisen Hallberg
+//Supriya Singhi
 //Full Stack Project
 //Setup
 const calendar = require('./newgoo.js');
@@ -63,7 +64,6 @@ app.get('/search*', function(req,res){
       ' OR city LIKE "%'+searchParam+'%"'+
       ' OR country LIKE "%'+searchParam+'%"'+
       ' OR address1 LIKE "%'+searchParam+'%"',
-
       function(err, result){
         if(err) throw err;
         const data = result;
@@ -78,7 +78,7 @@ app.get('/search*', function(req,res){
 
 //view specific event card on click of add button from main page.
 app.get('/card*', function(req,res){
-  //let card = req.query.query
+
   let searchParam = req.query.query;
   console.log(`EVENT NAME: ${searchParam}`)
   pool.getConnection(function(err, connection){
@@ -87,7 +87,8 @@ app.get('/card*', function(req,res){
     connection.query(
       'SELECT *'+
       ' FROM events'+ 
-      ' WHERE eventname like "%'+searchParam+'%"',
+      ' WHERE eventname'+
+      ' like "%'+searchParam+'%"',
     	function(err, result){
         if(err) throw err;
         const data = result;

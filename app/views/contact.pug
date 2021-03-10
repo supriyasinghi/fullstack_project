@@ -12,21 +12,41 @@ body
           .middle.aligned.column
             .ui.form
               .field
-                label(for='name' aria-label='name') Name: *
-                input#name.form-control(type='text' name='name' required='' aria-required='true')
+                label(for='name' 
+                      aria-label='name') Name: *
+                input#name.form-control(type='text' 
+                                        name='name' 
+                                        required='' 
+                                        aria-required='true')
               .field
-                label(for='email' aria-label='email') Email: *
-                input#email.form-control(type='email' name='email' required='' aria-required='true')
+                label(for='email' 
+                      aria-label='email') Email: *
+                input#email.form-control(type='email' 
+                                        name='email' 
+                                        required='' 
+                                        aria-required='true')
               .field
-                label(for='message' aria-label='message') Submit your Message:
-                textarea#message.form-control(rows='5' name='message' maxlimit='500')
+                label(for='message' 
+                      aria-label='message') Submit your Message:
+                textarea#message.form-control(rows='5' 
+                                              name='message' 
+                                              maxlimit='500')
               .field
                 .checkbox
                   label(for='signup')
-                    input#signup(type='checkbox' name='signup' aria-checked='mixed')
+                    input#signup(type='checkbox' 
+                                name='signup' 
+                                aria-checked='mixed')
                     |  Sign up for the newsletter
               .field(margin="30pt")
-                button.btn.btn-primary(type='submit' value='Submit' aria-label='submit' aria-pressed='true' padding='10px') Submit
-                button.btn.btn-secondary(type='reset' value='Reset' padding='10px' aria-label='reset') Reset
+                button.btn.btn-primary(type='submit' 
+                                      value='Submit' 
+                                      aria-label='submit' 
+                                      aria-pressed='true' 
+                                      padding='10px') Submit
+                button.btn.btn-secondary(type='reset' 
+                                      value='Reset' 
+                                      padding='10px' 
+                                      aria-label='reset') Reset
 
   include includes/footer.pug

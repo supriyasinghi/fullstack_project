@@ -16,7 +16,11 @@ html(lang='en')
     div.grid-container
       div.grid-item(id='search_container')
         .ui.icon.input
-          input(id='search' name='search' type='text' placeholder='Search Places...' aria-label='Search')
+          input(id='search' 
+                name='search' 
+                type='text' 
+                placeholder='Search Places...' 
+                aria-label='Search')
           i.search.icon
       div.grid-item(id='table_container')
         ui.container(id='container')
@@ -61,14 +65,15 @@ html(lang='en')
                   td(aria-label=event.rating) 
                       - for(x=0; x < ((event.rating).toFixed(0)); x++)
                         span &#11088
-                        //- #{event.rating} / 5 HTML Entity	&#11088;	HTML Entity (hex)	&#x2B50; "\u2B50"
+                        //- #{event.rating} / 5 -> HTML Entity: &#11088;	HTML Entity(hex):	&#x2B50;
                   td 
                     a.ui.inverted.blue.button(href=`/card?query=${event.eventname}` name=`${event.id}`
                       target='popup' 
                       onclick=`window.open(
                         '/card?query='${event.eventname},
                         "popup",'width=60%,height=40%,left=200px,top=200px';
-                        return false;` aria-button ='Add to Calendar')
+                        return false;` 
+                      aria-button ='Add to Calendar')
                       | ADD
 
       include includes/footer.pug

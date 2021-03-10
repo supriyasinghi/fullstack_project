@@ -30,7 +30,8 @@ head
           .column
             .ui.form
               .field
-                label(for='start' aria-label='Start Date') Start Date-Time
+                label(for='start' 
+                      aria-label='Start Date') Start Date-Time
                 div#datetimepicker1.input-group.date
                   input.form-control(type='text' 
                                     id='start' 
@@ -41,7 +42,8 @@ head
                   span.input-group-addon
                     span.glyphicon.glyphicon-calendar(aria-popup)
               .field
-                label(for='end' aria-label='End Date') End Date-Time
+                label(for='end' 
+                      aria-label='End Date') End Date-Time
                 div#datetimepicker2.input-group.date
                   input.form-control(type='text' 
                                     id='end' 
@@ -51,16 +53,30 @@ head
                   span.input-group-addon
                     span.glyphicon.glyphicon-calendar(aria-popup='Date Time')
               .field 
-                label(for='notes' aria-label='Notes') Notes
-                textarea(type='text' id='notes' name='notes' maxlength='50' required='')
-                input(type='hidden' id='address' name='address' value=`${event.address1}, ${event.city}, ${event.state} ${event.zipcode}`)
-                input(type='hidden' id='cal_event' name='cal_event' value=`${event.eventname}`)
-                input(type='hidden' id='event_id' name='event_id' value=`${event.id}`)
+                label(for='notes' 
+                      aria-label='Notes') Notes
+                textarea(type='text' 
+                        id='notes' 
+                        name='notes' 
+                        maxlength='50' 
+                        required='')
+                input(type='hidden' 
+                      id='address' 
+                      name='address' 
+                      value=`${event.address1}, ${event.city}, ${event.state} ${event.zipcode}`)
+                input(type='hidden' 
+                      id='cal_event' 
+                      name='cal_event' 
+                      value=`${event.eventname}`)
+                input(type='hidden' 
+                      id='event_id' 
+                      name='event_id' 
+                      value=`${event.id}`)
               div
-                input.btn.btn-primary(type='submit' value='Add To Calendar' aria-button='Add to Calendar')  
-              //.ui.blue.submit.button(id='add' type='submit' value='submit') Add to Calendar
-        //
-             
+                input.btn.btn-primary(type='submit' 
+                                      value='Add To Calendar' 
+                                      aria-button='Add to Calendar')  
+        //             
     include includes/footer.pug
 
 script.
