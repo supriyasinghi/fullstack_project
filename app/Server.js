@@ -212,6 +212,15 @@ app.post('/submit*', urlencodedParser, async(req, res, next) => {
   }
 })
 
+//about us page
+app.get('/about', function(req, res){
+  res.render("about", {
+    title: "About Us",
+    heading: "About Us - Team",
+    subheading: "We are your connection with Travel Planner",
+  });
+})
+
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });

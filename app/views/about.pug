@@ -1,0 +1,38 @@
+doctype html
+html(lang='en')
+head
+  include includes/head.pug
+
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
+  script(src='https://cdn.jsdelivr.net/momentjs/2.14.1/moment.min.js')
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js')
+  
+  //script(src='https://code.jquery.com/jquery-3.1.1.min.js' integrity='sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=' crossorigin='anonymous')
+  body
+    main#main
+      .ui.center.aligned
+        br 
+        h1.ui.center.aligned.header(mt-2) #{subheading}
+      .ui.raised.segment
+        .ui.two.column.stackable.grid.container
+          .middle.aligned.column.w-40
+            .ui.middle.aligned.rounded.large.image()
+              img.center(src ='assets/images/madisen.jpg' alt ='Madisen'
+                  style='height:200px;')
+            .ui.form.raised.segment.bg-light.rounded.w-40
+              .field My name is Madisen! 
+              .field I am a creative based in Portland, Oregon. While getting my bachelors degree in jazz performance, I dedicated much of my time working for a company called TradeSchool Inc, providing a user friendly database software and web platform for Electrical Trades programs all over the country. After falling in love with application design, I decided to pursue a new dream in the Computer Science field. In my free time, I love cuddling with my cat, backpacking and making music.”
+
+          .middle.aligned.column.w-40
+            .ui.middle.aligned.large.rounded.center.image()
+              img.center(src ='assets/images/supriya.png' alt ='Supriya'
+                  style='height:200px;')
+              br  
+              br
+            .ui.form.raised.segment.bg-light.rounded.w-40
+              .field Supriya Singhi
+              .field I am based in Portland, Oregon. I am born and raised in India, moved to USA in 2008. I have worked as Web Developer in India. With this course, I am trying to expand my knowledge. I love Art and Craft. In my free time, I spend time working on my hobby.
+              br
+             
+    include includes/footer.pug
