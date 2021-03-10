@@ -19,10 +19,14 @@ head
       .ui.placeholder.segment
         .ui.two.column.stackable.grid.container
           .middle.aligned.column
-            .ui.middle.aligned.large.image()
-              //- image(src=event.inagelink)
-              img(src ='assets/'+event.inagelink alt =`${event.eventname}`
+            .ui.middle.aligned.large.rounded.image()
+              img(src =`assets/${event.inagelink}` 
+                  alt =`${event.eventname}`
                   style='height:300px; float:left')
+              .ui.form(style='font-weight:bold') Location:
+              .ui.form #{event.address1}
+              .ui.form #{event.city}
+              .ui.form #{event.state} #{event.zipcode}
           .column
             .ui.form
               .field

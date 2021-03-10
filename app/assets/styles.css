@@ -160,3 +160,10 @@ ul li {
   padding: 0;
   background-image: linear-gradient(to right, rgba(91, 0, 133, 0.555), rgba(156, 56, 202, 0.658));
 }
+
+.img_center{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /* width: 50%; */
+}
