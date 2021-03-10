@@ -26,7 +26,7 @@ html(lang='en')
                 th(width='50%' aria-label='Event') Event
                 th(aria-label='City') City
                 th(aria-label='Country') Country
-                th(aria-label='Rating') Rating 
+                th(aria-label='Rating') Rating(5)
                 th(aria-label='Add to Calendar') Add to Calendar
             tbody
               each event in events
@@ -49,7 +49,7 @@ html(lang='en')
 
                 tr(id = "{\"name\":\""+event.eventname+"\",\n\"address1\":\""+event.address1+"\",\n\"city\":\""+event.city+"\",\n\"state\":\""+event.state+"\",\n\"zipcode\":\""+event.zipcode+"\",\n\"country\":\""+event.country+"\",\n\"open\":\""+event.opentime+"\",\n\"close\":\""+event.closetime+"\",\n\"website\":\""+event.website+"\",\n\"link\":\""+event.inagelink+"\"}")
                   td.selectable(width='25%' class='selectable')
-                    img.ui.medium.left.floated.image(
+                    img.ui.medium.left.floated.rounded.image(
                       src= 'assets/'+event.inagelink 
                       style='height:100px; width:125px;' 
                       alt=event.eventname
@@ -58,8 +58,10 @@ html(lang='en')
                     a(href='#' id='event' aria-modal) #{event.eventname}
                   td #{event.city}
                   td #{event.country}
-                  td #{event.rating} / 5
-                    //-.ui.star.rating(data-rating='4')
+                  td(aria-label=event.rating) 
+                      - for(x=0; x < ((event.rating).toFixed(0)); x++)
+                        span &#11088
+                        //- #{event.rating} / 5 HTML Entity	&#11088;	HTML Entity (hex)	&#x2B50; "\u2B50"
                   td 
                     a.ui.inverted.blue.button(href=`/card?query=${event.eventname}` name=`${event.id}`
                       target='popup' 
@@ -70,9 +72,3 @@ html(lang='en')
                       | ADD
 
       include includes/footer.pug
-
-//- script.
-//-   $('.ui.rating')
-//-     .rating('enable')
-//-   ;
-
