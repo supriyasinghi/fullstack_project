@@ -62,6 +62,7 @@ app.get('/search*', function(req,res){
       ' FROM events'+ 
       ' WHERE eventname LIKE "%'+searchParam+'%"' +
       ' OR city LIKE "%'+searchParam+'%"'+
+      ' OR state LIKE "%'+searchParam+'%"'+
       ' OR country LIKE "%'+searchParam+'%"'+
       ' OR address1 LIKE "%'+searchParam+'%"',
       function(err, result){
